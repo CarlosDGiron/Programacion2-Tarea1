@@ -43,7 +43,7 @@ public class Ventana1 extends javax.swing.JFrame {
         btnminus = new javax.swing.JButton();
         btnmult = new javax.swing.JButton();
         btndiv = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        menu1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -51,10 +51,16 @@ public class Ventana1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        txt.setEditable(false);
         txt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btn1.setText("1");
         btn1.setFocusable(false);
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
 
         btn2.setText("2");
         btn2.setFocusable(false);
@@ -66,45 +72,115 @@ public class Ventana1 extends javax.swing.JFrame {
 
         btn3.setText("3");
         btn3.setFocusable(false);
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn4.setText("4");
         btn4.setFocusable(false);
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         btn5.setText("5");
         btn5.setFocusable(false);
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn6.setText("6");
         btn6.setFocusable(false);
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn7.setText("7");
         btn7.setFocusable(false);
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
 
         btn8.setText("8");
         btn8.setFocusable(false);
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn9.setText("9");
         btn9.setFocusable(false);
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn0.setText("0");
         btn0.setFocusable(false);
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
 
         btnpunto.setText(".");
         btnpunto.setFocusable(false);
+        btnpunto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnpuntoActionPerformed(evt);
+            }
+        });
 
         btnsolve.setText("=");
         btnsolve.setFocusable(false);
+        btnsolve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsolveActionPerformed(evt);
+            }
+        });
 
         btnplus.setText("+");
         btnplus.setFocusable(false);
+        btnplus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnplusActionPerformed(evt);
+            }
+        });
 
         btnminus.setText("-");
         btnminus.setFocusable(false);
+        btnminus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnminusActionPerformed(evt);
+            }
+        });
 
         btnmult.setText("*");
         btnmult.setFocusable(false);
+        btnmult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmultActionPerformed(evt);
+            }
+        });
 
         btndiv.setText("/");
         btndiv.setFocusable(false);
+        btndiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndivActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Opciones");
 
@@ -124,12 +200,17 @@ public class Ventana1 extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        menu1.add(jMenu1);
 
         jMenu2.setText("Ayuda");
-        jMenuBar1.add(jMenu2);
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+        menu1.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -221,7 +302,90 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         // TODO add your handling code here:
+        txt.setText(txt.getText()+"2");
     }//GEN-LAST:event_btn2ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+"0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btnpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpuntoActionPerformed
+        // TODO add your handling code here:
+        txt.setText(txt.getText()+".");
+    }//GEN-LAST:event_btnpuntoActionPerformed
+
+    private void btnplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnplusActionPerformed
+        // TODO add your handling code here:
+        //mandar a clase el valor y setear variable temporal de operacion
+        txt.setText("+");
+    }//GEN-LAST:event_btnplusActionPerformed
+
+    private void btnminusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminusActionPerformed
+        // TODO add your handling code here:
+        //mandar a clase el valor y setear variable temporal de operacion
+        txt.setText("-");
+    }//GEN-LAST:event_btnminusActionPerformed
+
+    private void btnmultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmultActionPerformed
+        // TODO add your handling code here://mandar a clase el valor y setear variable temporal de operacion
+        txt.setText("*");
+    }//GEN-LAST:event_btnmultActionPerformed
+
+    private void btndivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndivActionPerformed
+        // TODO add your handling code here:
+        //mandar a clase el valor y setear variable temporal de operacion
+        txt.setText("/");
+    }//GEN-LAST:event_btndivActionPerformed
+
+    private void btnsolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsolveActionPerformed
+        // TODO add your handling code here:
+        //invocar la funcion operacion mandando el valor nuevo y la variable de operacion, set text igual al resultado
+    }//GEN-LAST:event_btnsolveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,9 +441,9 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JButton btnsolve;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuBar menu1;
     private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
