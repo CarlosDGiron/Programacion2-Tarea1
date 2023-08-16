@@ -307,6 +307,8 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        //agregar nuevo al historial
+        m=new Mate();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -591,6 +593,9 @@ public class Ventana1 extends javax.swing.JFrame {
                 new Ventana1().setVisible(true);
             }
         });
+    }
+    private void guardarHistorial(){
+    //guardar datos en bitacora
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
