@@ -5,14 +5,19 @@
 package Vista;
 import Modelo.Mate;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.io.IOException;
+import java.io.FileWriter;
+import javax.swing.JOptionPane;
 /**
  *
  * @author cana0
  */
 public class Ventana1 extends javax.swing.JFrame {
     Mate m=new Mate();
-    /**
+    Runtime rs=Runtime.getRuntime();
+    FileWriter fw;
+       /**
      * Creates new form Ventana1
      */
     public Ventana1() {
@@ -53,6 +58,11 @@ public class Ventana1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                close(evt);
+            }
+        });
 
         txt.setEditable(false);
         txt.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -211,6 +221,11 @@ public class Ventana1 extends javax.swing.JFrame {
         menu1.add(jMenu1);
 
         jMenu2.setText("Ayuda");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -302,13 +317,25 @@ public class Ventana1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        
+        try{
+            rs.exec("notepad Historial.txt");
+        }catch(Exception ex){
+            ex.getStackTrace();
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         //agregar nuevo al historial
         m=new Mate();
+        try{
+        fw = new FileWriter("Historial.txt",true);
+        fw.write("Nuevo\n");
+        fw.close();
+        }catch(Exception ex){
+                ex.getStackTrace();
+                }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -318,6 +345,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(rootPane,"Increíble Tutorial.");
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -373,104 +401,167 @@ public class Ventana1 extends javax.swing.JFrame {
     private void btnplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnplusActionPerformed
         // TODO add your handling code here:
         //mandar a clase el valor y setear variable temporal de operacion
+        try{
+            fw = new FileWriter("Historial.txt",true);
         if(m.getValor1()==null){
             if (txt.getText()==null || txt.getText()==""){
-                m.setValor1("0");
+                fw.write("0\n");
+                m.setValor1("0");                
             }else{
                 m.setValor1(txt.getText());
+                fw.write(txt.getText()+"\n");
             }
             m.setOperador(m.suma);
             txt.setText("");
         }else if ((m.getValor1()!=null)&& (m.getOperador()!=m.nulo)){
             m.setValor2(txt.getText());
+            fw.write("+\n");
+            fw.write(txt.getText()+"\n");
             txt.setText(String.valueOf(m.calcular()));
+            fw.write(txt.getText()+"\n");
             m.setOperador(m.suma);
         }else if((m.getValor1()!=null)&& (m.getOperador()==m.nulo)){
             m.setOperador(m.suma);
-            txt.setText("");
+            txt.setText("");            
+        }
+        fw.close();
+        }catch(Exception ex){
+            ex.getStackTrace();
         }
     }//GEN-LAST:event_btnplusActionPerformed
 
     private void btnminusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnminusActionPerformed
         // TODO add your handling code here:
         //mandar a clase el valor y setear variable temporal de operacion
+        try{
+        fw = new FileWriter("Historial.txt",true);
         if(m.getValor1()==null){
             if (txt.getText()==null || txt.getText()==""){
-                m.setValor1("0");
+                fw.write("0\n");
+                m.setValor1("0");                
             }else{
                 m.setValor1(txt.getText());
+                fw.write(txt.getText()+"\n");
             }
             m.setOperador(m.resta);
             txt.setText("");
         }else if ((m.getValor1()!=null)&& (m.getOperador()!=m.nulo)){
             m.setValor2(txt.getText());
+            fw.write("-\n");
+            fw.write(txt.getText()+"\n");
             txt.setText(String.valueOf(m.calcular()));
+            fw.write(txt.getText()+"\n");
             m.setOperador(m.resta);
         }else if((m.getValor1()!=null)&& (m.getOperador()==m.nulo)){
             m.setOperador(m.resta);
             txt.setText("");
         }
+        fw.close();
+        }catch(Exception ex){
+            ex.getStackTrace();
+        }
     }//GEN-LAST:event_btnminusActionPerformed
 
     private void btnmultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmultActionPerformed
         // TODO add your handling code here://mandar a clase el valor y setear variable temporal de operacion
+        try{
+            fw = new FileWriter("Historial.txt",true);
         if(m.getValor1()==null){
             if (txt.getText()==null || txt.getText()==""){
-                m.setValor1("0");
+                fw.write("0\n");
+                m.setValor1("0");                
             }else{
                 m.setValor1(txt.getText());
+                fw.write(txt.getText()+"\n");
             }
             m.setOperador(m.multiplicacion);
             txt.setText("");
         }else if ((m.getValor1()!=null)&& (m.getOperador()!=m.nulo)){
             m.setValor2(txt.getText());
+            fw.write("*\n");
+            fw.write(txt.getText()+"\n");
             txt.setText(String.valueOf(m.calcular()));
+            fw.write(txt.getText()+"\n");
             m.setOperador(m.multiplicacion);
         }else if((m.getValor1()!=null)&& (m.getOperador()==m.nulo)){
             m.setOperador(m.multiplicacion);
             txt.setText("");
+        }
+        fw.close();
+        }catch(Exception ex){
+            ex.getStackTrace();
         }
     }//GEN-LAST:event_btnmultActionPerformed
 
     private void btndivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndivActionPerformed
         // TODO add your handling code here:
         //mandar a clase el valor y setear variable temporal de operacion
+        try{
+            fw = new FileWriter("Historial.txt",true);
         if(m.getValor1()==null){
             if (txt.getText()==null || txt.getText()==""){
-                m.setValor1("0");
+                fw.write("0\n");
+                m.setValor1("0");                
             }else{
                 m.setValor1(txt.getText());
+                fw.write(txt.getText()+"\n");
             }
             m.setOperador(m.division);
             txt.setText("");
         }else if ((m.getValor1()!=null)&& (m.getOperador()!=m.nulo)){
             m.setValor2(txt.getText());
+            fw.write("/\n");
+            fw.write(txt.getText()+"\n");
             txt.setText(String.valueOf(m.calcular()));
+            fw.write(txt.getText()+"\n");
             m.setOperador(m.division);
         }else if((m.getValor1()!=null)&& (m.getOperador()==m.nulo)){
             m.setOperador(m.division);
             txt.setText("");
+        }
+        fw.close();
+        }catch(Exception ex){
+            ex.getStackTrace();
         }
     }//GEN-LAST:event_btndivActionPerformed
 
     private void btnsolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsolveActionPerformed
         // TODO add your handling code here:
         //invocar la funcion operacion mandando el valor nuevo y la variable de operacion, set text igual al resultado
+        try{
+            fw = new FileWriter("Historial.txt",true);
         if(m.getValor1()==null){
             if (txt.getText()==null || txt.getText()==""){
                 m.setValor1("0");
+                fw.write("0\n");
             }else{
                 m.setValor1(txt.getText());
+                fw.write(txt.getText()+"\n");
             }
             m.setOperador(m.nulo);
             txt.setText("");
         }else if ((m.getValor1()!=null)&& (m.getOperador()!=m.nulo)){
+            if(m.getOperador()==m.suma){
+                fw.write("+\n");
+            }else if(m.getOperador()==m.resta){
+                fw.write("-\n");
+            }else if(m.getOperador()==m.multiplicacion){
+                fw.write("*\n");
+            }else if(m.getOperador()==m.division){
+                fw.write("/\n");
+            }
             m.setValor2(txt.getText());
+            fw.write(txt.getText()+"\n");
             txt.setText(String.valueOf(m.calcular()));
+            fw.write(txt.getText()+"\n");
             m.setOperador(m.nulo);
         }else if((m.getValor1()!=null)&& (m.getOperador()==m.nulo)){
             m.setOperador(m.nulo);
             txt.setText("");
+        }
+        fw.close();
+        }catch(Exception ex){
+            ex.getStackTrace();
         }
     }//GEN-LAST:event_btnsolveActionPerformed
 
@@ -560,6 +651,15 @@ public class Ventana1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt
 
+    private void close(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_close
+        // TODO add your handling code here:
+    }//GEN-LAST:event_close
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(rootPane,"Increíble Tutorial.");
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -594,9 +694,9 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
     }
-    private void guardarHistorial(){
-    //guardar datos en bitacora
-    }
+
+   
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
